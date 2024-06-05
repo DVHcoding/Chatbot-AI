@@ -1,0 +1,92 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Xin chào",
+        "Chào bạn",
+        "Bạn khỏe không?",
+        "Có ai ở đó không?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Chào bạn :-)",
+        "Xin chào, cảm ơn bạn đã ghé thăm",
+        "Chào đằng đó :)). Tôi có thể giúp gì cho bạn nào ?",
+        "Xin chào. Bạn cần giúp gì không?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Tạm biệt", "Hẹn gặp lại", "Tạm biệt nhé"],
+      "responses": [
+        "Hẹn gặp lại, cảm ơn bạn đã ghé thăm",
+        "Chúc bạn một ngày tốt lành",
+        "Tạm biệt! Hẹn gặp lại sớm nhé."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Cảm ơn", "Thank you", "Rất hữu ích", "Cảm ơn nhiều!"],
+      "responses": [
+        "Vui lòng giúp đỡ!",
+        "Bất cứ lúc nào!",
+        "Hân hạnh được phục vụ"
+      ]
+    },
+    {
+      "tag": "items",
+      "patterns": [
+        "Bạn có những sản phẩm nào?",
+        "Có loại sản phẩm nào?",
+        "Bạn bán gì?"
+      ],
+      "responses": ["Chúng tôi bán cà phê và trà", "Chúng tôi có cà phê và trà"]
+    },
+    {
+      "tag": "payments",
+      "patterns": [
+        "Bạn nhận thẻ tín dụng không?",
+        "Bạn có chấp nhận thẻ Mastercard không?",
+        "Tôi có thể thanh toán bằng Paypal không?",
+        "Bạn chỉ nhận tiền mặt?"
+      ],
+      "responses": [
+        "Chúng tôi chấp nhận VISA, Mastercard và Paypal",
+        "Chúng tôi chấp nhận hầu hết các loại thẻ tín dụng chính và Paypal"
+      ]
+    },
+    {
+      "tag": "delivery",
+      "patterns": [
+        "Giao hàng mất bao lâu?",
+        "Vận chuyển mất bao lâu?",
+        "Khi nào tôi nhận được hàng?"
+      ],
+      "responses": ["Giao hàng mất từ 2-4 ngày", "Vận chuyển mất từ 2-4 ngày"]
+    },
+    {
+      "tag": "funny",
+      "patterns": [
+        "Kể một câu chuyện cười!",
+        "Kể một điều vui vẻ!",
+        "Bạn có biết một câu chuyện vui không?"
+      ],
+      "responses": [
+        "Tại sao thụt đầu gối lại đốt miệng? Anh ấy uống cà phê trước khi nó trở nên 'cool'.",
+        "Bò nói gì khi con trai của nó đi du học? Bison."
+      ]
+    },
+    {
+      "tag": "custom",
+      "patterns": ["1 + 1 Bằng mấy ?"],
+      "responses": ["Biết rồi còn hỏi -_-", "Bằng 2 chứ bằng mấy !"]
+    },
+    {
+      "tag": "custom2",
+      "patterns": ["phiền nếu tôi hỏi bạn không ?"],
+      "responses": ["Phiền đấy = ))", "Không phiền lắm. Bạn cứ hỏi thoải mái!"]
+    }
+  ]
+}
