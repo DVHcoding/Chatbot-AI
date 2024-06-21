@@ -19,7 +19,10 @@ intents = data['intents']
 def process_input(input_text):
     # Loại bỏ dấu tiếng Việt
     input_text_cleaned = unidecode(input_text.lower())
-    
+
+    max_match_count = 0
+    best_intent = None
+
     for intent in intents:
         for pattern in intent['patterns']:
             # Loại bỏ dấu tiếng Việt
@@ -31,20 +34,24 @@ def process_input(input_text):
             for word in words:
                 if word in input_text_cleaned.split():
                     match_count += 1
-            # Kiểm tra số từ khớp, chỉ trả lời nếu có ít nhất 2 từ khớp
-            if match_count >= 2:
-                # Trả về một câu trả lời ngẫu nhiên từ danh sách câu trả lời của ý định tương ứng
-                return random.choice(intent['responses'])
-    # Gợi ý người dùng chọn một vài câu hỏi từ danh sách intents
-    suggestions = [
-        "Xin lỗi, tôi không hiểu câu hỏi của bạn. Bạn có thể đặt câu hỏi như: ",
-    ]
-    # Lấy ngẫu nhiên một vài câu hỏi từ các intents để gợi ý cho người dùng
-    random_intents = random.sample(intents, min(3, len(intents)))
-    for intent in random_intents:
-        suggestions.append(random.choice(intent['patterns']))
-    return ", ".join(suggestions)
+            # Cập nhật ý định và số từ khớp tối đa nếu số từ khớp của câu hiện tại lớn hơn số từ khớp tối đa trước đó
+            if match_count > max_match_count:
+                max_match_count = match_count
+                best_intent = intent
 
+    if best_intent:
+        # Trả về một câu trả lời ngẫu nhiên từ danh sách câu trả lời của ý định tương ứng
+        return random.choice(best_intent['responses'])
+    else:
+        # Gợi ý người dùng chọn một vài câu hỏi từ danh sách intents
+        suggestions = [
+            "Xin lỗi, tôi không hiểu câu hỏi của bạn. Bạn có thể đặt câu hỏi như: ",
+        ]
+        # Lấy ngẫu nhiên một vài câu hỏi từ các intents để gợi ý cho người dùng
+        random_intents = random.sample(intents, min(3, len(intents)))
+        for intent in random_intents:
+            suggestions.append(random.choice(intent['patterns']))
+        return ", ".join(suggestions)
 
 # Định nghĩa route để dự đoán phản hồi
 @app.route('/predict', methods=['POST'])
